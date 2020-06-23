@@ -54,3 +54,6 @@ docs/_build/
 # kicad specific files
 *.kicad_mod
 *.pretty/
+
+# VS Code config dir
+.vscode
