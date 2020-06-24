@@ -184,16 +184,6 @@ def generate_one_footprint(pins_per_row, configuration):
     kicad_mod.append(PolygoneLine(polygone=poly_f,
                                   width=configuration['fab_line_width'], layer="F.Fab"))
 
-    # Pin 1 marking
-    p1m_sl = 1
-    p1m_poly = [
-        {'x': pad1_x - p1m_sl/2, 'y': body_edge['top']},
-        {'x': pad1_x, 'y': body_edge['top'] + p1m_sl/sqrt(2)},
-        {'x': pad1_x + p1m_sl/2, 'y': body_edge['top']}
-    ]
-    kicad_mod.append(PolygoneLine(polygone=p1m_poly,
-                                  width=configuration['fab_line_width'], layer="F.Fab"))
-
     ############################ SilkS ##################################
 
     s_pad_offset = configuration['silk_pad_clearance'] + configuration['silk_line_width']/2
@@ -312,10 +302,9 @@ def generate_one_footprint(pins_per_row, configuration):
     ##################### Output and 3d model ############################
 
     model3d_path_prefix = configuration.get('3d_model_prefix', '${KISYS3DMOD}/')
-    lib_name_suffix = '_THT'
 
     lib_name = configuration['lib_name_format_string_full'].format(
-        series=series, man=manufacturer, suffix=lib_name_suffix)
+        series=series, man=manufacturer, suffix="")
 
     model_name = '{model3d_path_prefix:s}{lib_name:s}.3dshapes/{fp_name:s}.wrl'.format(
         model3d_path_prefix=model3d_path_prefix, lib_name=lib_name, fp_name=footprint_name)
