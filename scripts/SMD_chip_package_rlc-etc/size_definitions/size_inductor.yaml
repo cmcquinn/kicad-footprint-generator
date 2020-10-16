@@ -1,3 +1,17 @@
+SMD_0806:
+    code_imperial: "0806"
+    code_metric: "2016"
+    body_length:
+        nominal: 2.00
+        tolerance: 0.20    
+    body_width:
+        nominal: 1.60
+        tolerance: 0.20
+    terminal_length:
+        nominal: 0.50
+        tolerance: 0.30
+    size_info: '(Body size source: https://product.tdk.com/en/search/inductor/inductor/smd/info/print_pdf)'
+
 SMD_1008:
   code_imperial: "1008"
   code_metric: "2520"
